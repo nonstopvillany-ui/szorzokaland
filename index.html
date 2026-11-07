@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="hu"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Szorzókaland • Játssz és tanulj!</title><style>
+
+:root{--ink:#253c3a;--green:#237b62;--cream:#faf7ed;--purple:#7760bd}*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:ui-rounded,'Trebuchet MS',sans-serif}button,select,input{font:inherit}button{cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible{outline:4px solid #dfac45;outline-offset:4px}header{max-width:1180px;margin:auto;padding:25px 28px;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{font-weight:900;font-size:24px;letter-spacing:-1px}.brand span{background:#28765e;color:white;border-radius:14px;padding:7px 12px;margin-right:9px}.tag{font-size:12px;letter-spacing:2px;font-weight:bold;color:#608076}.stats{display:flex;gap:10px}.pill{background:white;border:1px solid #e5e6da;padding:11px 16px;border-radius:30px;font-weight:bold}main{max-width:1180px;margin:auto;padding:8px 28px 40px}.hero{position:relative;overflow:hidden;background:#dceee2;border-radius:30px;padding:36px 38px;min-height:230px}.hero h1{font-size:clamp(28px,4vw,45px);letter-spacing:-1.5px;line-height:1.12;margin:14px 0}.hero p{max-width:450px;line-height:1.6;margin:0;color:#51716a}.scene{position:absolute;right:25px;top:20px;width:330px;height:210px}.island{position:absolute;bottom:8px;right:20px;background:#b0d49b;width:270px;height:65px;border-radius:50%;box-shadow:0 15px 0 #95b887}.tree{font-size:93px;position:absolute;bottom:35px;right:10px}.fox{font-size:100px;position:absolute;bottom:30px;right:110px;transform:rotate(-8deg)}.star{position:absolute;font-size:38px;left:25px;top:15px;animation:float 3s ease-in-out infinite}.bubble{position:absolute;top:5px;right:15px;background:white;padding:12px 20px;border-radius:20px;transform:rotate(8deg);font-weight:bold;font-size:23px}@keyframes float{50%{transform:translateY(-10px) rotate(10deg)}}.layout{display:grid;grid-template-columns:minmax(0,1fr) 285px;gap:24px;margin-top:25px}.modes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}.mode{border:1px solid #e4e4d8;background:white;border-radius:18px;padding:15px 6px;color:#52645e;font-size:13px;font-weight:bold}.mode span{display:block;font-size:25px;margin-bottom:7px}.mode.active{background:#27775e;color:white;border-color:#27775e;box-shadow:0 5px 0 #195640}.card{background:white;border:1px solid #e6e5da;border-radius:25px;padding:25px}.cardtop{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#63776d}.badge{background:#f2ecff;color:#7654b3;padding:7px 11px;border-radius:20px;font-weight:bold}.question{text-align:center;font-size:clamp(44px,6vw,65px);font-weight:900;letter-spacing:2px;margin:28px 0 22px}.question em{color:#8c70c8;font-style:normal}.answers{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.answer{border:2px solid #e5e8df;border-bottom:5px solid #e5e8df;background:#fafbf6;border-radius:17px;padding:18px 5px;font-size:27px;font-weight:bold;color:var(--ink)}.answer:hover:not(:disabled){background:#eeebfa;border-color:#bcaada;transform:translateY(-2px)}.answer:disabled{cursor:default}.answer.correct{background:#d8efdf;border-color:#75b98d}.answer.wrong{background:#ffe6dc;border-color:#df9d87}.feedback{min-height:54px;text-align:center;padding:17px 0 7px;font-weight:bold;line-height:1.5}.bottom{display:flex;justify-content:space-between;align-items:center;gap:12px}.primary{border:0;border-radius:14px;background:#28775e;color:white;padding:13px 23px;font-weight:bold}.primary:disabled{opacity:.45;cursor:default}.subtle{border:0;background:transparent;color:#6b7971;text-decoration:underline;font-size:13px;padding:10px}.sidebar h2{font-size:18px;margin:0 0 17px}.sidebar .card{margin-bottom:17px}.numbers{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.number{padding:9px 0;border:1px solid #deded5;border-radius:10px;background:#fff;color:#66776c;font-weight:bold}.number[aria-pressed=true]{background:#e1eee2;color:#246b53;border-color:#9ac2a1}.all{width:100%;margin-top:10px;border:0;background:#f4f5ef;border-radius:10px;padding:9px;color:#62786a;font-size:12px}.progress{height:10px;background:#e8eadd;border-radius:10px;overflow:hidden;margin:13px 0}.progress div{height:100%;background:#dcb251;width:0;transition:width .3s}.small{font-size:12px;color:#758274;line-height:1.6}.reward{display:flex;gap:10px;align-items:center;margin:15px 0}.reward b{font-size:24px;background:#fbf2dc;padding:10px;border-radius:14px}.reward strong{font-size:13px}.map{background:#f0eaf9;border-color:#e1d8ef}.mapsteps{display:flex;justify-content:space-between;font-size:25px;margin:20px 0 10px}.footer{text-align:center;font-size:12px;color:#819083;margin-top:24px}input{width:130px;font-size:28px;padding:13px;border:2px solid #b8cdbc;border-radius:14px;text-align:center}.entry{display:flex;justify-content:center;gap:12px}.confetti{position:fixed;top:-40px;pointer-events:none;font-size:28px;animation:fall 2s linear forwards;z-index:10}@keyframes fall{to{transform:translateY(105vh) rotate(300deg)}}@media(max-width:850px){.scene{opacity:.45;right:-85px}.hero h1,.hero p,.hero .tag{position:relative;z-index:1}.hero p{max-width:300px}.layout{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:1fr 1fr;gap:15px}.sidebar .card:last-child{grid-column:1/-1}}@media(max-width:520px){header,main{padding-left:16px;padding-right:16px}.brand{font-size:19px}.pill{padding:9px;font-size:13px}.hero{padding:25px}.hero p{max-width:230px}.scene{right:-150px}.sidebar{grid-template-columns:1fr}.modes{gap:7px}.mode{font-size:11px}.card{padding:19px}.answers{grid-template-columns:repeat(2,1fr)}.answer{padding:13px}.tag{font-size:10px}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.challenge { margin-bottom: 18px; background: #fff6df; border-color: #ebd8a9; }
+.challenge h2 { margin: 0 0 8px; font-size: 21px; }
+.challenge p { margin: 0; line-height: 1.5; }
+.challenge-settings { display: flex; gap: 12px; flex-wrap: wrap; align-items: end; margin-top: 15px; }
+.challenge-settings label { display: grid; flex: 1 1 125px; gap: 5px; font-weight: bold; font-size: 13px; }
+.challenge-settings select { min-height: 44px; border: 1px solid #a49472; border-radius: 10px; background: white; color: var(--ink); padding: 8px; }
+.challenge-status { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+.challenge-status output { font-weight: bold; font-variant-numeric: tabular-nums; }
+.challenge-status output.urgent { color: #a13424; }
+.challenge-summary { margin-top: 12px !important; font-weight: bold; }
+.challenge [hidden] { display: none; }
+.modes button:disabled, .sidebar button:disabled { opacity: .6; cursor: default; }
+.entry { flex-wrap: wrap; }
+</style></head><body><header><div class="brand"><span>×</span>Szorzókaland</div><div class="stats"><div class="pill" id="hearts">❤️ 3</div><div class="pill" id="candies">🍬 0</div></div></header><main><section class="hero"><div class="tag">KIS LÉPÉSEK. NAGY FELFEDEZÉSEK.</div><h1>A tudásod a<br>legnagyobb kincsed.</h1><p>Indulj kalandra Rókussal! Oldd meg a szorzásokat, gyűjts cukorkát, és szerezd meg a következő szívedet.</p><div class="scene" aria-hidden="true"><div class="island"></div><div class="tree">🌳</div><div class="fox">🦊</div><div class="star">✨</div><div class="bubble">7 × 8 = ?</div></div></section><div class="layout"><section><nav class="modes" aria-label="Játékmódok"><button class="mode active" data-mode="choice"><span>🎯</span>Kincsvadászat</button><button class="mode" data-mode="input"><span>✏️</span>Számvarázsló</button><button class="mode" data-mode="missing"><span>🧩</span>Hiányzó szám</button><button class="mode" data-mode="truth"><span>🔎</span>Igaz vagy hamis?</button></nav>
+<section class="card challenge" aria-labelledby="challengeTitle">
+  <h2 id="challengeTitle">🏆 Szorzókihívás</h2>
+  <p class="small">Válassz játékmódot, szorzótáblát és időkeretet, majd indulhat a kihívás!</p>
+  <div class="challenge-settings" id="challengeSettings">
+    <label>Feladatok száma
+      <select id="challengeLength">
+        <option value="50">50 feladat</option>
+        <option value="100">100 feladat</option>
+      </select>
+    </label>
+    <label>Időkorlát
+      <select id="challengeLimit">
+        <option value="0">Nincs időkorlát</option>
+        <option value="2">2 perc</option>
+        <option value="5">5 perc</option>
+        <option value="10">10 perc</option>
+        <option value="15">15 perc</option>
+        <option value="20">20 perc</option>
+      </select>
+    </label>
+    <button type="button" class="primary" id="challengeStart">Indítás</button>
+  </div>
+  <div class="challenge-status" id="challengeStatus" hidden>
+    <strong id="challengeProgress"></strong>
+    <output id="challengeTimer" role="timer" aria-live="off"></output>
+    <button type="button" class="subtle" id="challengeStop">Befejezem</button>
+  </div>
+  <p class="challenge-summary" id="challengeSummary" role="status" tabindex="-1" hidden></p>
+</section>
+<article class="card" id="game" tabindex="-1"><div class="cardtop"><span id="modeLabel">Válaszd ki a helyes eredményt!</span><span class="badge" id="level">🌱 Felfedező</span></div><div class="question" id="question"></div><div id="controls"></div><div class="feedback" id="feedback" role="status" aria-live="polite">Rókus szurkol neked! 🦊</div><div class="bottom"><button class="subtle" id="hint">💡 Egy kis segítség</button><button class="primary" id="next" disabled>Következő →</button></div></article><div class="card map" style="margin-top:18px"><div class="cardtop"><strong>AZ UTAD A KINCSES VÁRIG</strong><span id="total">0 jó válasz</span></div><div class="mapsteps" aria-hidden="true"><span>🏕️</span><span>🌲</span><span>🌉</span><span>⛰️</span><span>🏰</span></div><div class="progress"><div id="journey"></div></div><div class="small" id="journeyText">Minden jó válasz egy lépés előre. A vár 50 lépésre van!</div></div></section><aside class="sidebar"><section class="card"><h2>Melyiket gyakoroljuk?</h2><div class="numbers" id="tables"></div><button class="all" id="all">Mind a tízet választom</button><p class="small">Válassz egy vagy több szorzótáblát! A másik szám mindig 1–10 közötti.</p></section><section class="card"><h2>Jön a következő jutalom!</h2><div class="cardtop"><span>Jó válaszok egymás után</span><strong id="streak">0 / 10</strong></div><div class="progress"><div id="streakbar"></div></div><div class="reward"><b>🍬</b><div><strong>5 jó válasz → cukorka</strong><div class="small">Félúton is jár az ünneplés!</div></div></div><div class="reward"><b>❤️</b><div><strong>10 jó válasz → szív</strong><div class="small">Utána új sorozat indul.</div></div></div><p class="small" id="mistakes">Hibák a következő levonásig: 0 / 5</p><p class="small">Öt összegyűlt hibánál −1 szív. Nullánál is játszhatsz tovább; a szíveket visszagyűjtheted!</p></section><section class="card"><h2>Nyugodtan, a te tempódban 🌿</h2><p class="small">Nincs visszaszámlálás. Segítséget kérhetsz, és minden válasz után megnézheted a megoldást.</p><button class="subtle" id="reset">Haladás törlése</button><div class="small" id="saveInfo">A haladás ezen a böngészőn mentődik.</div></section></aside></div><div class="footer">Szorzókaland • 1–10-es szorzótáblák • 1–100 közötti eredmények • Jó játékot! 🌼</div></main><script>
+'use strict';
+const $=id=>document.getElementById(id);let state={hearts:3,candies:0,streak:0,mistakes:0,total:0};try{let s=JSON.parse(localStorage.getItem('szorzokaland-v1'));if(s)for(let k in state)if(Number.isInteger(s[k])&&s[k]>=0)state[k]=s[k];state.streak%=10;state.mistakes%=5}catch(e){}let selected=new Set([1,2,3,4,5,6,7,8,9,10]),mode='choice',a,b,expected,locked=false,previous='';
+function save(){try{localStorage.setItem('szorzokaland-v1',JSON.stringify(state))}catch(e){$('saveInfo').textContent='Ebben a böngészőben a mentés nem elérhető.'}}
+function render(){ $('hearts').textContent='❤️ '+state.hearts;$('candies').textContent='🍬 '+state.candies;$('streak').textContent=state.streak+' / 10';$('streakbar').style.width=state.streak*10+'%';$('mistakes').textContent='Hibák a következő levonásig: '+state.mistakes+' / 5';$('total').textContent=state.total+' jó válasz';$('journey').style.width=Math.min(100,state.total*2)+'%';$('journeyText').textContent=state.total>=50?'Elérted a kincses várat! Minden további megoldás új kincs. 🏆':'Még '+(50-state.total)+' jó válasz a kincses várig!';$('level').textContent=state.total>=50?'🏆 Szorzómester':state.total>=20?'🌟 Kalandor':'🌱 Felfedező'}
+function celebrate(){for(let i=0;i<18;i++){const el=document.createElement('span');el.className='confetti';el.textContent=['⭐','🍬','💛'][i%3];el.style.left=Math.random()*100+'vw';el.style.animationDelay=Math.random()*.5+'s';document.body.appendChild(el);setTimeout(()=>el.remove(),3000)}}
+function choose(n){return Math.floor(Math.random()*n)}
+function answer(value,button){if(locked||expireChallenge())return;locked=true;const good=value===expected;let message='';if(good){state.total++;state.streak++;message='Ügyes vagy! '+a+' × '+b+' = '+a*b+' ✨';if(state.streak===5){state.candies++;message+=' Öt jó egymás után: +1 cukorka! 🍬';celebrate()}if(state.streak===10){state.hearts++;state.streak=0;message+=' Tíz jó egymás után: +1 szív! ❤️';celebrate()}if(button)button.classList.add('correct')}else{state.streak=0;state.mistakes++;message='Most nem sikerült. A megoldás: '+a+' × '+b+' = '+a*b+'. Próbáld újra a következőnél! 🌱';if(state.mistakes===5){state.hearts=Math.max(0,state.hearts-1);state.mistakes=0;message+=' Öt hiba összegyűlt; szívek: '+state.hearts+'.'}if(button)button.classList.add('wrong')}document.querySelectorAll('#controls button,#controls input').forEach(el=>{el.disabled=true;if(el.dataset.value===String(expected))el.classList.add('correct')});$('feedback').textContent=message;$('next').disabled=false;$('hint').disabled=true;render();save();if(recordChallengeAnswer(good))return;$('next').focus()}
+function addButton(label,value,parent){const btn=document.createElement('button');btn.className='answer';btn.textContent=label;btn.dataset.value=String(value);btn.onclick=()=>answer(value,btn);parent.appendChild(btn)}
+function next(){locked=false;[a,b]=drawQuestion();previous=a+','+b;$('next').textContent='Következő →';expected=a*b;$('next').disabled=true;$('hint').disabled=false;$('feedback').textContent='Gondolkodj nyugodtan, menni fog!';$('controls').replaceChildren();const labels={choice:'Válaszd ki a helyes eredményt!',input:'Írd be a helyes eredményt!',missing:'Melyik szám bújt el?',truth:'Igaz vagy hamis az állítás?'};$('modeLabel').textContent=labels[mode];if(mode==='missing')expected=b;let shown=a*b;if(mode==='truth'){const truth=Math.random()<.5;if(!truth)shown=shown===100?99:shown+1+choose(Math.min(9,100-shown));expected=truth} $('question').innerHTML=mode==='missing'?a+' × <em>?</em> = '+a*b:mode==='truth'?a+' × '+b+' = <em>'+shown+'</em>':a+' × '+b+' = <em>?</em>';if(mode==='input'){const form=document.createElement('div');form.className='entry';form.innerHTML='<input type="number" min="1" max="100" step="1" inputmode="numeric" aria-label="Eredmény" required autocomplete="off"><button type="button" class="primary">Ellenőrzés</button>';const check=()=>{if(locked)return;const input=form.querySelector('input');const value=Number(input.value);if(!input.value.trim()||!Number.isInteger(value)||value<1||value>100){$('feedback').textContent='Írj be egy egész számot 1 és 100 között! ✏️';input.focus();return}answer(value)};form.querySelector('button').addEventListener('click',check);form.querySelector('input').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();check()}});$('controls').appendChild(form)}else{const group=document.createElement('div');group.className='answers';$('controls').appendChild(group);if(mode==='truth'){group.style.gridTemplateColumns='1fr 1fr';addButton('✓ Igaz',true,group);addButton('✕ Hamis',false,group)}else{let opts=new Set([expected]);while(opts.size<4)opts.add(choose(mode==='missing'?10:100)+1);let arr=[...opts];for(let i=arr.length-1;i>0;i--){let j=choose(i+1);[arr[i],arr[j]]=[arr[j],arr[i]]}arr.forEach(v=>addButton(v,v,group))}}}
+for(let i=1;i<=10;i++){const btn=document.createElement('button');btn.className='number';btn.textContent=i;btn.setAttribute('aria-pressed','true');btn.onclick=()=>{if(selected.has(i)){if(selected.size===1){$('feedback').textContent='Legalább egy szorzótábla maradjon kiválasztva!';return}selected.delete(i)}else selected.add(i);btn.setAttribute('aria-pressed',selected.has(i));next()};$('tables').appendChild(btn)}
+$('all').onclick=()=>{selected=new Set([1,2,3,4,5,6,7,8,9,10]);document.querySelectorAll('.number').forEach(x=>x.setAttribute('aria-pressed','true'));next()};document.querySelectorAll('.mode').forEach(btn=>{btn.setAttribute('aria-pressed',btn.dataset.mode===mode);btn.onclick=()=>{mode=btn.dataset.mode;document.querySelectorAll('.mode').forEach(x=>{x.classList.toggle('active',x===btn);x.setAttribute('aria-pressed',x===btn)});next()}});$('next').onclick=()=>{if(expireChallenge())return;next();if(mode==='input')$('controls').querySelector('input').focus()};$('hint').onclick=()=>{$('feedback').textContent='💡 '+Array(b).fill(a).join(' + ')+' = '+a*b+'. A szorzás ismételt összeadás!'};$('reset').onclick=()=>{if(confirm('Töröljük az összes összegyűjtött jutalmat és haladást?')){state={hearts:3,candies:0,streak:0,mistakes:0,total:0};save();render();next()}};
+
+let challenge = null;
+let challengeInterval;
+
+function drawQuestion() {
+  if (challenge) {
+    const pair = challenge.questions[challenge.answered];
+    $('challengeProgress').textContent = 'Feladat: ' + (challenge.answered + 1) + ' / ' + challenge.questions.length;
+    return pair;
+  }
+
+  const tables = [...selected];
+  let first, second;
+  do {
+    first = tables[choose(tables.length)];
+    second = choose(10) + 1;
+  } while (first + ',' + second === previous);
+  return [first, second];
+}
+
+function makeChallengeQuestions(count) {
+  const pool = [...selected].flatMap(table =>
+    Array.from({length: 10}, (_, i) => [table, i + 1])
+  );
+  const questions = [];
+  while (questions.length < count) {
+    const batch = [...pool];
+    for (let i = batch.length - 1; i > 0; i--) {
+      const j = choose(i + 1);
+      [batch[i], batch[j]] = [batch[j], batch[i]];
+    }
+    if (questions.length && String(batch[0]) === String(questions.at(-1))) {
+      [batch[0], batch[1]] = [batch[1], batch[0]];
+    }
+    questions.push(...batch);
+  }
+  return questions.slice(0, count);
+}
+
+function setChallengeSettings(active) {
+  document.querySelectorAll('.mode, .number, #all, #reset').forEach(button => {
+    button.disabled = active;
+  });
+  $('challengeSettings').hidden = active;
+  $('challengeStatus').hidden = !active;
+}
+
+function startChallenge() {
+  const minutes = Number($('challengeLimit').value);
+  challenge = {
+    questions: makeChallengeQuestions(Number($('challengeLength').value)),
+    answered: 0,
+    correct: 0,
+    deadline: minutes ? Date.now() + minutes * 60_000 : null
+  };
+  $('challengeSummary').hidden = true;
+  setChallengeSettings(true);
+  next();
+  updateChallengeTimer();
+  if (challenge.deadline) challengeInterval = setInterval(updateChallengeTimer, 200);
+  $('game').focus({preventScroll: true});
+  $('game').scrollIntoView({block: 'nearest'});
+}
+
+function expireChallenge() {
+  if (!challenge?.deadline || Date.now() < challenge.deadline) return false;
+  finishChallenge('Lejárt az idő!');
+  return true;
+}
+
+function updateChallengeTimer() {
+  if (!challenge || expireChallenge()) return;
+  const timer = $('challengeTimer');
+  timer.classList.remove('urgent');
+  if (!challenge.deadline) {
+    timer.textContent = '⏱ Időkorlát nélkül';
+    return;
+  }
+
+  const seconds = Math.max(0, Math.ceil((challenge.deadline - Date.now()) / 1000));
+  timer.classList.toggle('urgent', seconds <= 10);
+  timer.textContent = '⏱ ' + Math.floor(seconds / 60) + ':' + String(seconds % 60).padStart(2, '0');
+}
+
+function recordChallengeAnswer(good) {
+  if (!challenge) return false;
+  challenge.answered++;
+  if (good) challenge.correct++;
+  if (challenge.answered < challenge.questions.length) return false;
+  finishChallenge('Célba értél! 🏆');
+  return true;
+}
+
+function finishChallenge(title) {
+  const {questions, answered, correct} = challenge;
+  challenge = null;
+  clearInterval(challengeInterval);
+  setChallengeSettings(false);
+  $('next').textContent = 'Tovább gyakorlok →';
+  $('next').disabled = false;
+  $('hint').disabled = true;
+  locked = true;
+  document.querySelectorAll('#controls button,#controls input').forEach(control => {
+    control.disabled = true;
+  });
+
+  const summary = $('challengeSummary');
+  summary.textContent = title + ' ' + correct + ' jó, ' + (answered - correct) +
+    ' hibás, ' + (questions.length - answered) + ' megválaszolatlan feladat.';
+  summary.hidden = false;
+  summary.focus();
+}
+
+$('challengeStart').addEventListener('click', startChallenge);
+$('challengeStop').addEventListener('click', () => finishChallenge('Kihívás lezárva.'));
+render();
+next();
+</script></body></html>
